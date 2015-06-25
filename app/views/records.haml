@@ -1,0 +1,8 @@
+%ul
+- @Records.each do |record|
+	%li
+		%h4 
+			Mensaje enviado el día 
+			%strong #{record.date}
+			con el siguiente texto:
+		%p #{record.text}

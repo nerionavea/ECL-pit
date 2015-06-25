@@ -1,0 +1,10 @@
+%h2 Configuración de SMS
+%form{:method => 'post', :action => '/admin_config'}
+	%input{:type => 'hidden', :name => '_method', :value => 'put'}
+	%label{:for => 'wdsl'} WDSL
+	%input.form-control{:type => 'text', :id => 'wdsl', :required => true, :name => 'sms[wdsl]'}
+	%label{:for => 'passport'} Pasaporte
+	%input.form-control{:type => 'text', :id => 'passport', :required => true, :name => 'sms[passport]'}
+	%label{:for => 'password'} Contraseña
+	%input.form-control{:type => 'text', :id => 'password', :required => true, :name => 'sms[password]'}
+	%input.btn.btn-default{:type => 'submit', :value => 'Guardar', :style => 'float: right;'}
