@@ -25,7 +25,7 @@ end
 class Messages_config 
 	include DataMapper::Resource
 	property :id, Serial
-	property :wdsl, String
+	property :wdsl, String, :length => 100
 	property :passport, String
 	property :password, String
 end
