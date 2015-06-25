@@ -32,7 +32,7 @@ end
 
 post '/customers/new' do 
 	Customer.create(params[:customer])
-	redirect to ('/customers/')
+	redirect to ('/customers')
 end
 
 get '/records' do
