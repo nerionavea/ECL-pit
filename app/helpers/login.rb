@@ -26,6 +26,9 @@ module Sinatra
 			app.enable :sessions
 
 			app.get '/login' do
+				if User.first == nil
+					User.create(:nick => "admin", :password => "admin")
+				end
 				haml :login, :layout => :layout_login
 			end
 
