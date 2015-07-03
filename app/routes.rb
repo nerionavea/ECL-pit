@@ -79,6 +79,7 @@ put '/admin_config' do
 end
 
 get '/admin/users' do
+	protected!
 	@users = User.all
 	haml :users
 end

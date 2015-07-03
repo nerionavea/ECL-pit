@@ -11,6 +11,10 @@ Dir["./app/**/*.rb"].each do |file|
     require file
 end
 
+if Users.get(1) == nil
+	Users.create(:nick => "admin", :password => "admin")
+end
+
 configure do
   DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{Dir.pwd}/development.sqlite3"))
   DataMapper.auto_upgrade!
