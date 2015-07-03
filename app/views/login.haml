@@ -1,9 +1,9 @@
-%h1 Login
+%h1 Iniciar Sesión
 %form{:method => 'post', :action => '/login'}
 	.form-group
-		%label Email
-		%input.form-control{:name => 'login[email]', :id => 'email', :required => true}
+		%label Usuario
+		%input.form-control{:name => 'login[nick]', :id => 'user', :required => true}
 	.form-group
-		%label Password
+		%label Contraseña
 		%input.form-control{:name => 'login[password]', :id => 'password', :required => true, :type => 'password'}
 	%input.btn.btn-default{:type => 'submit', :value => 'Login'}

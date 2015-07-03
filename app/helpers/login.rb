@@ -7,7 +7,7 @@ module Sinatra
 				session[:started]
 			end
 			def protected!
-				halt 401, haml(:login) unless authorized?
+				halt 401, haml(:login, :layout => :layout_login) unless authorized?
 			end
 			def login
 				user = User.authenticate(params[:login])
@@ -15,7 +15,7 @@ module Sinatra
 					redirect to('/login')
 				else
 					session[:started] = true
-					session[:email] = user.email
+					session[:user] = user.nick
 				end
 			end
 		end
@@ -26,7 +26,7 @@ module Sinatra
 			app.enable :sessions
 
 			app.get '/login' do
-				haml :login, :layout => :layoutoutside
+				haml :login, :layout => :layout_login
 			end
 
 			app.post '/login' do

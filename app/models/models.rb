@@ -3,9 +3,10 @@ class User
 	property :id, Serial
 	property :nick, String
 	property :password, String
+	property :active, Boolean, :default => true
 
 	def self.authenticate(login)
-    user = User.first(:email => login[:email])
+    user = User.first(:nick => login[:nick])
     if user == nil
    		false
     else
@@ -35,6 +36,7 @@ class Messages_record
 	property :id, Serial
 	property :date, Date
 	property :text, String
+	property :user, String
 end
 
 
