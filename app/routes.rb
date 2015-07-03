@@ -22,6 +22,16 @@ get '/customers/new' do
 	haml :customer_new
 end
 
+get '/customer/edit/:id' do
+	@title = "Editar cliente"
+	haml :customer_edit
+end
+
+put '/customer/edit/:id' do
+	Customer.get(params[:id]).update(params[:customer])
+end
+
+
 get '/message' do
 	protected!
 	@title = "Envíar Mensaje"
@@ -69,7 +79,6 @@ put '/admin_config' do
 end
 
 get '/admin/users' do
-	protected!
 	@users = User.all
 	haml :users
 end
