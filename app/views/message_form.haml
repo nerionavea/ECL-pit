@@ -1,4 +1,6 @@
 %h2 Enviar SMS Masivo
+%section
+	= styled_flash
 %form{:method => 'post', :action => '/message'}
 	%textarea.form-control{:type => 'text', :name => 'smstext', :placeholder => 'Escriba su SMS...', :maxlenght => '160'}
 	%input.btn.btn-default{:type => 'submit', :value => 'Enviar', :style => 'float: right;'}

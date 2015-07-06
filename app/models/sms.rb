@@ -16,7 +16,8 @@ class SMS
 		'passport' => @config.passport, 
 		'password' => @config.password, 
 		'number' => convert_number_to_international(to), 
-		'text' => text})	
+		'text' => text})
+		Message.collect(to,text)
 	end
 	def convert_number_to_international(number)
 		'58' + number[-10..10]

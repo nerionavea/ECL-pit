@@ -19,13 +19,17 @@
 							#span.caret
 						%ul.dropdown-menu{:role => 'menu'}
 							%li
+								%a{:href => "/admin/sms"}
+									Saldo
+							%li.divider{:role => 'separator'}
+							%li
 								%a{:href => "/logout"}
 									Cerrar sesión
 				%ul.nav.navbar-nav.navbar-right
 					%li
-						%a{:href => '/message'}
+						%a{:href => '/message', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'Envíar mensaje masivo'}
 							%span.glyphicon-envelope.glyphicon
 					%li
-						%a{:href => '/customers'}Clientes
+						%a{:href => '/customers', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'Mostrar agenda de clientes'}Clientes
 					%li
-						%a{:href => '/records'} Registro
+						%a{:href => '/records', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'Todos los mensajes enviados'} Registro

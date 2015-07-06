@@ -5,7 +5,7 @@ end
 
 get '/home' do 
 	protected!
-	haml :home
+	haml :message_form
 end
 
 get '/customers' do
@@ -18,7 +18,7 @@ end
 get '/customers/new' do
 	protected!
 	@title = "Nuevo Cliente"
-	@Customer = Customer.new()
+	@customer = Customer.new()
 	haml :customer_new
 end
 
@@ -28,6 +28,7 @@ get '/customer/edit/:id' do
 end
 
 put '/customer/edit/:id' do
+	protected!
 	Customer.get(params[:id]).update(params[:customer])
 end
 
@@ -43,7 +44,8 @@ post '/message' do
 	messenger = SMS.new
 	messenger.send_masive_sms(params[:smstext])
 	Messages_record.create(:date => Time.now, :text => params[:smstext], :user => session[:user])
-	redirect to ('/home')
+	flash[:notice] = "Su mensaje ha sido enviado satisfactoriamente a todos sus clientes"
+	redirect to ('/message')
 end
 
 post '/customers/new' do 

@@ -1,9 +1,7 @@
-%ul
+.list-group
 - @Records.each do |record|
-	%li
-		%h4 
-			Mensaje enviado el día 
+	%a.list-group-item
+		%h4.list-group-item-heading
 			%strong #{record.date}
-			con el siguiente texto:
-		%p #{record.text}
-		%p Usuario: #{record.user}
+		%p.list-group-item-text #{record.text}
+		%p.list-group-item-text Usuario: #{record.user}

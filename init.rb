@@ -6,6 +6,7 @@ require 'rufus-scheduler'
 require 'dm-core'
 require 'dm-migrations'
 require 'savon'
+require 'sinatra/flash'
 
 Dir["./app/**/*.rb"].each do |file|
     require file
