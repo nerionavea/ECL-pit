@@ -22,16 +22,23 @@ get '/customers/new' do
 	haml :customer_new
 end
 
-get '/customer/edit/:id' do
+get '/customers/edit/:id' do
+	protected!
+	@customer= Customer.get(params[:id])
 	@title = "Editar cliente"
 	haml :customer_edit
 end
 
-put '/customer/edit/:id' do
+put '/customers/edit/:id' do
 	protected!
 	Customer.get(params[:id]).update(params[:customer])
+	redirect to ('/customers')
 end
 
+delete '/customers/del/:id' do
+	Customer.get(params[:id]).destroy
+	redirect to ("/customers") 
+end
 
 get '/message' do
 	protected!

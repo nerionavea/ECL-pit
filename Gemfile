@@ -13,3 +13,4 @@ gem 'dm-postgres-adapter', :group => :production
 gem 'dm-sqlite-adapter', :group => :development
 gem 'savon'
 gem 'dm-sqlite-adapter', :group => :development
+gem 'sinatra-flash'

@@ -5,3 +5,8 @@
 	%p
 		%h4 #{customer.first_name} #{customer.last_name}
 		#{customer.cellphone}
+	%a{:href => "/customers/edit/#{customer.id}"}
+		%span.glyphicon.glyphicon-pencil
+	%form{:action => "/customers/del/#{customer.id}", :method => "POST"} 
+		%input{:type => "hidden", :name => "_method", :value => "DELETE"}
+		%input.btn.btn-default{:type => "submit", :value => "Borrar cliente"}

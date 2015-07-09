@@ -26,6 +26,7 @@ module Sinatra
 			app.enable :sessions
 
 			app.get '/login' do
+				@title = "Iniciar sesión"
 				if User.first == nil
 					User.create(:nick => "admin", :password => "admin")
 				end
