@@ -8,7 +8,9 @@ class SMS
 		@customers = Customer.all
 		@customers.each do |customer|
 			transformed_text = text.gsub('(Nombre)', customer.first_name).gsub('(Apellido)', customer.last_name)
-			send_sms(customer.cellphone, transformed_text)
+			if customer.cellphone != nil
+				send_sms(customer.cellphone, transformed_text)
+			end
 		end
 	end
 	def send_sms(to,text)
