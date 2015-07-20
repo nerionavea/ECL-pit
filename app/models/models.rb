@@ -36,7 +36,7 @@ class Messages_record
 	include DataMapper::Resource
 	property :id, Serial
 	property :date, Date
-	property :text, String
+	property :text, String, :length => 4000
 	property :user, String
 end
 
@@ -76,12 +76,12 @@ class Message
 	include DataMapper::Resource
 	property :id, Serial
 	property :to, String
-	property :text, String
+	property :text, String, :default => "text"
 	property :date, Date
 	belongs_to :billing
 
 	def self.collect(to,text)
-		Billing.get_actual_bill.messages.create(:to => to, :text => text, :date => Time.now)
+		Billing.get_actual_bill.messages.create(:to => to, :date => Time.now)
 	end
 end
 
