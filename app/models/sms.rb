@@ -17,7 +17,7 @@ class SMS
 		sended_point = 0
 		while text.length > sended_point
 			send_sms(to, text[sended_point, 160])
-			sended_point += 161
+			sended_point += 160
 		end
 	end
 	def send_sms(to,text)
