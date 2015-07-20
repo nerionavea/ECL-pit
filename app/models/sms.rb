@@ -9,8 +9,15 @@ class SMS
 		@customers.each do |customer|
 			transformed_text = text.gsub('(Nombre)', customer.first_name).gsub('(Apellido)', customer.last_name)
 			if customer.cellphone != nil
-				send_sms(customer.cellphone, transformed_text)
+				divide_and_send_message(customer.cellphone, transformed_text)
 			end
+		end
+	end
+	def divide_and_send_message(to,text)
+		sended_point = 0
+		while text.length > sended_point
+			send_sms(to, text[sended_point, 160])
+			sended_point += 161
 		end
 	end
 	def send_sms(to,text)
