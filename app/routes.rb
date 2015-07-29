@@ -50,7 +50,9 @@ post '/message' do
 	protected!
 	messenger = SMS.new
 	Messages_record.create(:date => Time.now, :text => params[:smstext], :user => session[:user])
-	messenger.send_masive_sms(params[:smstext])
+	Thread.new do
+		messenger.send_masive_sms(params[:smstext])
+	end
 	flash[:notice] = "Su mensaje ha sido enviado satisfactoriamente a todos sus clientes"
 	redirect to ('/message')
 end

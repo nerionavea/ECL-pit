@@ -10,6 +10,7 @@ class SMS
 			transformed_text = text.gsub('(Nombre)', customer.first_name).gsub('(Apellido)', customer.last_name)
 			if customer.cellphone != nil
 				divide_and_send_message(customer.cellphone, transformed_text)
+				sleep 3
 			end
 		end
 	end
