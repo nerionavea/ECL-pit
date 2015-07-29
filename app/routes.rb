@@ -49,7 +49,7 @@ end
 post '/message' do
 	protected!
 	messenger = SMS.new
-	Messages_record.create(:date => Time.now, :text => params[:smstext], :user => session[:user])
+	Messages_record.create(:date => Time.now, :text => params[:smstext][0..48], :user => session[:user])
 	Thread.new do
 		messenger.send_masive_sms(params[:smstext])
 	end
