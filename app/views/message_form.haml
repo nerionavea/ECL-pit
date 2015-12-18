@@ -1,8 +1,16 @@
+:javascript
+	function countChar(val){
+		var len = val.value.length;
+		$('#charNum').text(len);
+	};
+
+
 %h2 Enviar SMS Masivo
 %section
 	= styled_flash
 %form{:method => 'post', :action => '/message'}
-	%textarea.form-control{:type => 'text', :name => 'smstext', :placeholder => 'Escriba su SMS...', :maxlenght => '160'}
+	%textarea.form-control#field{:type => 'text', :name => 'smstext', :placeholder => 'Escriba su SMS...', :maxlenght => '160', :onkeyup => "countChar(this)"}
+	#charNum
 	%input.btn.btn-default{:type => 'submit', :value => 'Enviar', :style => 'float: right;'}
 %h3 Ayuda
 %p Esta es la intefáz para enviar mensajes masivos personalizados a sus clientes, si desea colocar algún dato de sus clientes en los mensaje podra hacerlo de la siguiente manera:
